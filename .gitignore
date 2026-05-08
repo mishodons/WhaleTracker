@@ -1,0 +1,27 @@
+# Python
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.venv/
+venv/
+
+# Local environment
+.env
+.env.*
+!.env.example
+
+# Local tracker data and logs
+data/
+*.sqlite
+*.sqlite-shm
+*.sqlite-wal
+*.db
+*.log
+
+# OS/editor noise
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/

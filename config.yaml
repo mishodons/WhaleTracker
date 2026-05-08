@@ -1,0 +1,89 @@
+database:
+  path: data/whale_tracker.sqlite
+
+trader:
+  wallet: ""
+  label: target-whale
+
+api:
+  data_base_url: https://data-api.polymarket.com
+  gamma_base_url: https://gamma-api.polymarket.com
+  clob_base_url: https://clob.polymarket.com
+  timeout_seconds: 20
+  max_retries: 3
+  retry_backoff_seconds: 0.75
+
+tracking:
+  default_mode: normal
+  poll_intervals:
+    fast: 3
+    normal: 15
+    slow: 60
+  trade_page_limit: 100
+  backfill_page_limit: 500
+  max_backfill_pages: 20
+  capture_current_books_on_backfill: true
+  optional_market_websocket:
+    enabled: false
+    url: wss://ws-subscriptions-clob.polymarket.com/ws/market
+
+snapshots:
+  followup_intervals:
+    - 0s
+    - 1m
+    - 5m
+    - 15m
+    - 1h
+    - 4h
+    - 24h
+  slippage_notional_sizes:
+    - 100
+    - 500
+    - 1000
+    - 5000
+  liquidity_bands_pct:
+    - 1
+    - 2
+    - 5
+    - 10
+
+logging:
+  level: INFO
+  file: data/whale_tracker.log
+
+weather:
+  target_wallet: 0xb06a0eae498750ed0acac7e1f759f741c56e52f5
+  discovery_refresh_seconds: 180
+  trade_poll_seconds: 2
+  forecast_refresh_seconds: 900
+  market_limit: 500
+  max_market_pages: 8
+  websocket_url: wss://ws-subscriptions-clob.polymarket.com/ws/market
+  websocket_subscription_batch_size: 200
+  websocket_persist_raw_events: false
+  websocket_buffer_seconds: 300
+  websocket_buffer_rows_per_token: 1000
+  execution_match_window_ms: 5000
+  basket_snapshots:
+    enabled: true
+  followups:
+    enabled: true
+    poll_seconds: 15
+    intervals:
+      - 30s
+      - 1m
+      - 5m
+      - 15m
+      - 1h
+  observations:
+    enabled: true
+    refresh_seconds: 900
+  metar:
+    enabled: true
+    refresh_seconds: 60
+    aviation_weather_base_url: https://aviationweather.gov/api/data
+  forecasts:
+    enabled: true
+    provider: open-meteo
+    forecast_base_url: https://api.open-meteo.com
+    geocoding_base_url: https://geocoding-api.open-meteo.com
