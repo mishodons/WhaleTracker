@@ -19,6 +19,9 @@ data/
 *.sqlite-wal
 *.db
 *.log
+*.zip
+*.tgz
+*.tar.gz
 
 # OS/editor noise
 .DS_Store
